@@ -6,3 +6,5 @@ RUN mvn clean package -s settings.xml -DskipTests=false -B
 
 # 可选：生成测试覆盖率报告（如果配置了 Jacoco）
 RUN mvn jacoco:report
+RUN mkdir -p /jacoco-report && \
+    cp -r /test_jacoco/target/site/jacoco/* /jacoco-report/
